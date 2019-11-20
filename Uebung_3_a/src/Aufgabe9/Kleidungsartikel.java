@@ -1,0 +1,24 @@
+package Aufgabe9;
+
+/**
+* Unterklasse der Klasse Artikel. Speichert zus�tzlich
+* das verwendete Material ab.
+*/
+public class Kleidungsartikel extends Artikel{
+
+	private String material;
+	
+	public Kleidungsartikel(int aNr, String bez, double pr, String mat){
+		super(aNr, bez, pr);
+		this.material = mat;
+	}
+	
+	public String getMaterial(){
+		return material;
+	}
+	
+	public void setMaterial(String mat){
+		this.material = mat;
+	}
+	
+}
