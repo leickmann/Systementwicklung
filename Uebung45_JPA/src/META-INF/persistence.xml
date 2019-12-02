@@ -7,6 +7,11 @@
   	<class>VorlesungsVerzeichnis.Professor</class>
   	<class>VorlesungsVerzeichnis.Vorlesung</class>
   	<class>PhoneBookEntry</class>
+  	<class>OnlineModegeschaeft.Artikel</class>
+  	<class>OnlineModegeschaeft.Mitarbeiter</class>
+  	<class>OnlineModegeschaeft.Lieferant</class>
+  	<class>OnlineModegeschaeft.Kleidungsartikel</class>
+  	<class>OnlineModegeschaeft.Schuhartikel</class>
     
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
