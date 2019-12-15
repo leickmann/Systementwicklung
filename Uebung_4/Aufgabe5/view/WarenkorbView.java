@@ -55,15 +55,7 @@ public class WarenkorbView implements Observer{
         frame.setLayout(new BorderLayout());
 		
         String spalten[] = {"Pos.", "Bezeichnung", "Preis"};
-		String [][] daten = new String[wk_model.getArtikelliste().size()][3];
-		
-		for(int i = 0; i < wk_model.getArtikelliste().size(); i++){
-			int zaehler = i;
-			zaehler++;
-			daten[i][0] = String.valueOf(zaehler);
-			daten[i][1] = wk_model.getArtikelliste().get(i).getBezeichnung();
-			daten[i][2] = String.valueOf(wk_model.getArtikelliste().get(i).getPreis());
-		}
+		String [][] daten = artikellisteToDataArray();
 		
 		table = new JTable(daten, spalten);	
 	    table.getColumn("Pos.").setPreferredWidth(20);
@@ -71,10 +63,8 @@ public class WarenkorbView implements Observer{
 	    table.getColumn("Preis").setPreferredWidth(50);
 		paneltable.add(table);
 		
-		double preis = 0;
-		for(int i = 0; i < wk_model.getArtikelliste().size(); i++){
-			preis = preis + wk_model.getArtikelliste().get(i).getPreis();
-		}
+		double preis = berechnePreis();
+		
 		NumberFormat n = NumberFormat.getInstance();
 		n.setMaximumFractionDigits(2);
 		gesamtpreis = new JLabel("Gesamtpreis: " + n.format(preis));
@@ -95,6 +85,27 @@ public class WarenkorbView implements Observer{
 		frame.pack();
 		frame.setVisible(true);
 		
+	}
+	
+	public String [][] artikellisteToDataArray() { 									//Ausgelagert in Aufgebenblatt 6
+		String [][] daten = new String[wk_model.getArtikelliste().size()][3];
+			
+		for(int i = 0; i < wk_model.getArtikelliste().size(); i++){
+			int zaehler = i;
+			zaehler++;
+			daten[i][0] = String.valueOf(zaehler);
+			daten[i][1] = wk_model.getArtikelliste().get(i).getBezeichnung();
+			daten[i][2] = String.valueOf(wk_model.getArtikelliste().get(i).getPreis());
+		}
+		return daten;
+	}
+	
+	public double berechnePreis() {													//Ausgelagert in Aufgabenblatt 6
+		double preis = 0;
+		for(int i = 0; i < wk_model.getArtikelliste().size(); i++){
+			preis = preis + wk_model.getArtikelliste().get(i).getPreis();
+		}
+		return preis;
 	}
 	
 	public void update() {
