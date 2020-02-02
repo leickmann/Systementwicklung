@@ -1,4 +1,4 @@
-package VorlesungsVerzeichnis;
+3package VorlesungsVerzeichnis;
 
 import java.util.List;
 

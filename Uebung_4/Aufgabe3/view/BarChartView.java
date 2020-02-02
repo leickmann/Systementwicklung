@@ -91,7 +91,7 @@ public class BarChartView implements IObserverInterface
 	 * @param blue Prozentualer Anteil der blauen Partei.
 	 * @return JPanel mit Balkendiagramm.
 	 */
-	private JPanel createChartPanel (final double red, final double green,
+	private JPanel createChartPanel (double red, final double green,
 			final double blue)
 	{
 
